@@ -3,6 +3,7 @@
 This guide demonstrates the process of deobfuscating the `PapperKey` in Brawl Stars.
 **Note:** These methods will work as long as Supercell has not updated or changed their key obfuscation methods.
 
+[Turkce readme Version](READMETR.md)
 ---
 
 ## Disclaimer
