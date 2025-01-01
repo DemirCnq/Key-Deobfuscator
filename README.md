@@ -151,6 +151,54 @@ int main() {
 
 Compile and run the code to retrieve the deobfuscated key.
 
+
+###Method 3: 
+This method obtains the key by converting the output of the deobfuscater function from Litte Endian to Big Endian like other methods. It uses some filters because it is not a Native Function. This code can be used without filters: 
+
+![DeobfuscatedKeyMethod2](deobfuscatedkeymethod2.png)
+
+Replace `offset` with the offset of the deobfuscater function:
+
+```javascript
+function reverse(value) { //Little Endian to Big Endian Function
+    let reversed = 0n;
+    const bytelen = Math.ceil(value.toString(16).length / 2);
+    for (let i = 0; i < bytelen; i++) {
+        reversed = (reversed << 8n) | (value & 0xFFn);
+        value >>= 8n;
+    }
+
+    return reversed;
+}
+
+const base = Module.getBaseAddress('libg.so');
+    const offset = 0x3CE9D8; //dehasher
+    const address = base.add(offset);
+
+    var isFilter = true
+    var count = 0
+    let buffer = '';
+
+    Interceptor.attach(address, {
+    onEnter(args) {},
+    onLeave(retval) {
+        toast("leaved");
+        count++;
+        if (isFilter) {
+            if ([13, 14, 15, 16].includes(count)) {
+                const reversed = reverse(BigInt(retval));
+                buffer += reversed.toString(16);
+                if (count === 16) console.log(buffer);
+            }
+        } else {
+            const reversed = reverse(BigInt(retval));
+            const buffer = reversed.toString(16) + '\n';
+            console.log(buffer);
+        }
+    }
+});
+```
+
 ---
 
 ## Conclusion
