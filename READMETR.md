@@ -124,7 +124,6 @@ const base = Module.getBaseAddress('libg.so');
     Interceptor.attach(address, {
     onEnter(args) {},
     onLeave(retval) {
-        toast("leaved");
         count++;
         if (isFilter) {
             if ([13, 14, 15, 16].includes(count)) {
