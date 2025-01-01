@@ -22,7 +22,7 @@ Interceptor.attach(address, {
     onLeave(retval) {
         count++;
         if (isFilter) {
-            if (count) === [13, 14, 15, 16].includes(count)) {
+            if ([13, 14, 15, 16].includes(count)) {
             const reversed = reverse(BigInt(retval));
             buffer += reversed.toString(16);
             if (count === 16) console.log(buffer);
