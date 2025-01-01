@@ -15,22 +15,23 @@ const address = base.add(offset);
 
 var isFilter = true
 var count = 0
-
+let buffer = '';
 
 Interceptor.attach(address, {
     onEnter(args) {},
     onLeave(retval) {
         toast("leaved")
         count++;
-        if (isFilter || [13, 14, 15, 16].includes(count)) {
+        if (isFilter) {
+            if (count) === [13, 14, 15, 16].includes(count)) {
             const reversed = reverse(BigInt(retval));
-            let buffer = '';
             buffer += reversed.toString(16);
             if (count === 16) console.log(buffer);
-        } else {
-            const reversed = reverse(BigInt(retval));
-            const buffer = reversed.toString(16) + '\n';
-            console.log(buffer)
         }
+    } else {
+        const reversed = reverse(BigInt(retval));
+        const buffer = reversed.toString(16) + '\n';
+        console.log(buffer)
     }
+}
 });
