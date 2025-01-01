@@ -22,7 +22,7 @@ Interceptor.attach(address, {
     onLeave(retval) {
         toast("leaved")
         count++;
-        if (!isFilter || [13, 14, 15, 16].includes(count)) {
+        if (isFilter || [13, 14, 15, 16].includes(count)) {
             const reversed = reverse(BigInt(retval));
             let buffer = '';
             buffer += reversed.toString(16);
