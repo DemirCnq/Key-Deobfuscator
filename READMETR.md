@@ -18,7 +18,7 @@ Bu yazılımı sorumlu ve etik bir şekilde kullanın.
 ## Genel Bakış
 Bu işlem için `arm64` kütüphanesini kullandım, ancak aynı yöntemi `arm32` kütüphanesine de uygulayabilirsiniz.
 Yöntemler:
-1. Game Guardian Memory Dump(just memory dump) burayı istersen silebilirsin
+1. Game Guardian Memory Dump(just memory dump) shit
 2. [Demircnq](https://github.com/DemirCnq) Method(so cool) need moddable client
 3. [Mehmet Efenin](https://github.com/MehmetEfeFriday) Method (so cool) need moddable client
 4. Custom Deobfuscator by [Demircnq](https://github.com/DemirCnq) (so fucking cool) need just obfuscated key
