@@ -53,6 +53,7 @@ Bu örnekteki gizlenmiş anahtar:
 ---
 ### Yöntem 1:
 ![Deobfuscate Fonksiyonu](arm64-v59.PNG)
+
 Bu yöntem dehasher fonksiyonunu Native Fonksiyon olarak kullanarak resimde bulunan mantıkla obfuscated keyi deobfuscate eder.
 Dehasher fonksiyonunun adresini `libfrida-script.js` içindeki `decrypt_key_addr` değişkenine adresini yazarak kullanabilirsiniz. İşte örnek bir kod parçacığı:
 
