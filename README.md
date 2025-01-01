@@ -206,6 +206,4 @@ These methods provide a systematic way to extract and deobfuscate the `PapperKey
 If Supercell updates their security mechanisms, these methods may become obsolete.
 
 ---
-
-
----
+Credits: Demircnq and MehmetEfeFriday
