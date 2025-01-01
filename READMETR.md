@@ -100,6 +100,7 @@ Native Fonksiyon olmadığı için bazı filtreler kullanır.
 Filtresizde bu kod kullanılabilir:
 ![DeobfuscatedKeyMethod2](deobfuscatedkeymethod2.png)
 
+`offset` değerini dehasher fonksiyonunun offseti ile değiştirin:
 ```javascript
 function reverse(value) { //Little Endian to Big Endian Function
     let reversed = 0n;
