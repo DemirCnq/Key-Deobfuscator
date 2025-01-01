@@ -17,6 +17,9 @@ Use this software responsibly and ethically.
 
 ## Overview
 I utilized the `arm64` library for this process, but you can apply the same method to the `arm32` library.
+1. [Demircnq](https://github.com/DemirCnq) Method(so cool) need moddable client
+2. [Mehmet Efenin](https://github.com/MehmetEfeFriday) Method (so cool) need moddable client
+3. Custom Deobfuscator by [Demircnq](https://github.com/DemirCnq) (so fucking cool) need just obfuscated key
 
 ### Method 1: Locating the `deobfuscate` Function
 The first step is finding `deobfuscate` function. To do this:
