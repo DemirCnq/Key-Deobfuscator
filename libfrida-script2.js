@@ -20,7 +20,6 @@ let buffer = '';
 Interceptor.attach(address, {
     onEnter(args) {},
     onLeave(retval) {
-        toast("leaved")
         count++;
         if (isFilter) {
             if (count) === [13, 14, 15, 16].includes(count)) {
