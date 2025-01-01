@@ -152,7 +152,7 @@ int main() {
 Compile and run the code to retrieve the deobfuscated key.
 
 
-###Method 3: 
+### Method 3: 
 This method obtains the key by converting the output of the deobfuscater function from Litte Endian to Big Endian like other methods. It uses some filters because it is not a Native Function. This code can be used without filters: 
 
 ![DeobfuscatedKeyMethod2](deobfuscatedkeymethod2.png)
