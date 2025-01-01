@@ -10,27 +10,28 @@ function reverse(value) { //Little Endian to Big Endian Function
 }
 
 const base = Module.getBaseAddress('libg.so');
-const offset = 0x3CE9D8; //dehasher
-const address = base.add(offset);
+    const offset = 0x3CE9D8; //dehasher
+    const address = base.add(offset);
 
-var isFilter = true
-var count = 0
-let buffer = '';
+    var isFilter = true
+    var count = 0
+    let buffer = '';
 
-Interceptor.attach(address, {
+    Interceptor.attach(address, {
     onEnter(args) {},
     onLeave(retval) {
+        toast("leaved");
         count++;
         if (isFilter) {
             if ([13, 14, 15, 16].includes(count)) {
+                const reversed = reverse(BigInt(retval));
+                buffer += reversed.toString(16);
+                if (count === 16) console.log(buffer);
+            }
+        } else {
             const reversed = reverse(BigInt(retval));
-            buffer += reversed.toString(16);
-            if (count === 16) console.log(buffer);
+            const buffer = reversed.toString(16) + '\n';
+            console.log(buffer);
         }
-    } else {
-        const reversed = reverse(BigInt(retval));
-        const buffer = reversed.toString(16) + '\n';
-        console.log(buffer)
     }
-}
 });
