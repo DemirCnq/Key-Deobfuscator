@@ -43,19 +43,19 @@ Bu örnekteki gizlenmiş anahtar:
 ```
 
 ---
-### Gizlenmiş Anahtar İle Dehasher Fonksiyonunu Bulma
+### Gizlenmiş Anahtar İle deobfuscater Fonksiyonunu Bulma
 İlk adım `deobfuscate` fonksiyonunu bulmaktır. Bunu yapmak için:
 1. IDA Proyu açın obfuscated keyin bulunduğu adresi G tuşunu kullanarak açın.
-2. "Xref graph to" tuşuna basarak tüm xrefleri görebilirsiniz oradaki tek fonksiyon dehasher fonksiyonudur.
+2. "Xref graph to" tuşuna basarak tüm xrefleri görebilirsiniz oradaki tek fonksiyon deobfuscater fonksiyonudur.
 ![Obfuscated Key](obfkeyxref.PNG)
-![Dehasher Fonksiyonu](dehasherfunc.png)
+![deobfuscater Fonksiyonu](deobfuscaterfunc.png)
 
 ---
 ### Yöntem 1:
 ![Deobfuscate Fonksiyonu](arm64-v59.PNG)
 
-Bu yöntem dehasher fonksiyonunu Native Fonksiyon olarak kullanarak resimde bulunan mantıkla obfuscated keyi deobfuscate eder.
-Dehasher fonksiyonunun adresini `libfrida-script.js` içindeki `decrypt_key_addr` değişkenine adresini yazarak kullanabilirsiniz. İşte örnek bir kod parçacığı:
+Bu yöntem deobfuscater fonksiyonunu Native Fonksiyon olarak kullanarak resimde bulunan mantıkla obfuscated keyi deobfuscate eder.
+deobfuscater fonksiyonunun adresini `libfrida-script.js` içindeki `decrypt_key_addr` değişkenine adresini yazarak kullanabilirsiniz. İşte örnek bir kod parçacığı:
 
 ```javascript
 const module = Process.findModuleByName("libg.so");
@@ -95,12 +95,12 @@ console.log("THE KEY: " + key);
 ```
 
 ## Yöntem 2
-Bu yöntem dehasher fonksiyonunun çıktıları diğer yöntemler gibi Litte Endiandan to Big Endiana çevirerek keyi elde eder.
+Bu yöntem deobfuscater fonksiyonunun çıktıları diğer yöntemler gibi Litte Endiandan to Big Endiana çevirerek keyi elde eder.
 Native Fonksiyon olmadığı için bazı filtreler kullanır.
 Filtresizde bu kod kullanılabilir:
 ![DeobfuscatedKeyMethod2](deobfuscatedkeymethod2.png)
 
-`offset` değerini dehasher fonksiyonunun offseti ile değiştirin:
+`offset` değerini deobfuscater fonksiyonunun offseti ile değiştirin:
 ```javascript
 function reverse(value) { //Little Endian to Big Endian Function
     let reversed = 0n;
@@ -114,7 +114,7 @@ function reverse(value) { //Little Endian to Big Endian Function
 }
 
 const base = Module.getBaseAddress('libg.so');
-const offset = 0x3CE9D8; //dehasher
+const offset = 0x3CE9D8; //deobfuscater
 const address = base.add(offset);
 
 var isFilter = true
