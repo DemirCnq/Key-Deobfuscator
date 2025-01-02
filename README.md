@@ -1,6 +1,6 @@
 # Brawl Stars Reverse Engineering (BSRE)
 
-This guide demonstrates the process of deobfuscating the `PapperKey` in Brawl Stars.
+This guide demonstrates the process of deobfuscating the `PepperKey` in Brawl Stars.
 **Note:** These methods will work as long as Supercell has not updated or changed their key obfuscation methods.
 
 [Turkce readme Version](READMETR.md)
@@ -204,7 +204,7 @@ const base = Module.getBaseAddress('libg.so');
 ---
 
 ## Conclusion
-These methods provide a systematic way to extract and deobfuscate the `PapperKey` from Brawl Stars binaries. As always, ensure you use this information responsibly.
+These methods provide a systematic way to extract and deobfuscate the `PepperKey` from Brawl Stars binaries. As always, ensure you use this information responsibly.
 
 If Supercell updates their security mechanisms, these methods may become obsolete.
 
